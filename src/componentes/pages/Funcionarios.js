@@ -1,7 +1,18 @@
+import FuncionarioForm from '../funcionario/FuncionarioForm';
+import styles from './Funcionario.module.css'
+
 
 function Funcionarios(){
 
-    return <h1>Funcionarios</h1>
+    return (
+        <div className = {styles.funcionario_container}>
+            <h1>Cadastrar Funcionarios</h1>
+            <FuncionarioForm btnText = "Cadastrar Funcionario" />
+        </div>
+    );
+
+
+    
 
 }
 

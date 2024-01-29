@@ -1,0 +1,13 @@
+.funcionario_container{
+    width: 500px;
+    margin: 0 auto;
+    padding: 3em;
+}
+
+.funcionario_container h1{
+    margin-bottom: 0.5em;
+}
+
+.funcionario_container p{
+    color: #7b7b7b;
+}

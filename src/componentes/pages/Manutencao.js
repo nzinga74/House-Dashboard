@@ -1,6 +1,14 @@
+import ManutencaoForm from '../manutencao/ManutencaoForm'
+import styles from './Manutencao.module.css'
+
 
 function Manutencao(){
-    return <h1>Manuntenção</h1>
+    return (
+        <div className = {styles.manutencao_container}>
+        <h1>Cadastrar Manutenção</h1>
+        <ManutencaoForm btnText = "Cadastrar Manutenção"/>
+    </div>
+    )
 
 }
 

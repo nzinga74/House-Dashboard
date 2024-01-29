@@ -8,7 +8,7 @@ import logo from '../../img/icons8-home-64.png'
 
 function Navbar(){
     return (
-        <nav class={styles.navbar}>
+        <nav className={styles.navbar}>
             <Container>
                 <Link to = "/">
                     <img src = {logo} alt = "house" />
