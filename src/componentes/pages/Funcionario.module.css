@@ -1,11 +1,17 @@
 .funcionario_container{
-    width: 500px;
+    width: 80%;
     margin: 0 auto;
     padding: 3em;
+    padding: 30px;
+    background-color: white;
+    
+    margin: 40px auto;
+
 }
 
 .funcionario_container h1{
-    margin-bottom: 0.5em;
+    font-size: 19px;
+    margin-bottom: 0.2em;
 }
 
 .funcionario_container p{
