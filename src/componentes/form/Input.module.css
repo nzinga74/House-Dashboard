@@ -13,8 +13,14 @@
     padding: 0.7em;
     border-radius: 0;
     border: none;
+    background-color: aliceblue;
 }
 
 .form_control input::placeholder{
     color: #7b7b7b;
+}
+
+.error{
+    color:red;
+    font-size: 12px;
 }
