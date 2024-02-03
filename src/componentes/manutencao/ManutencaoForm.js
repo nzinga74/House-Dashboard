@@ -4,6 +4,7 @@ import SubmitButton  from '../form/SubmitButton'
 import { Formik, Form, Field } from "formik";
 import styleform from "../form/Input.module.css";
 import * as Yup  from "yup"
+import Selecionar from '../form/Selecionar';
 
 
 function Manutencao({btnText}){
@@ -74,17 +75,7 @@ function Manutencao({btnText}){
               {errors.custo && touched.custo ? (<div className={styleform.error}> {errors.custo}</div>):null}
             </div>
 
-            <div className={styleform.form_control}>
-              <label>Funcionário: </label>
-              <Field
-                type="text"
-                text="Funcionario"
-                name="funcionario"
-                placeholder="Insira o nome do funcionario"
-              />
-              {errors.funcionario && touched.funcionario ? (<div className={styleform.error}> {errors.funcionario}</div>):null}
-            </div>
-
+          <Selecionar name="funcionario_id" text="Funcionario"/>
               <SubmitButton text={btnText}/>
              </Form>
               )}
