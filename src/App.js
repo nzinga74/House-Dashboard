@@ -11,13 +11,11 @@ import Container from './componentes/layout/Container'
 import Navbar from './componentes/layout/Navbar'
 import Footer from './componentes/layout/Footer'
 
+
 function App(){
-
     return(
-
         <BrowserRouter>
             <Navbar/>
-            
             <Container customClass="min_height" >
             <Routes>
          
@@ -31,7 +29,6 @@ function App(){
             
             </Routes>
             </Container>
-
 
             <Footer/>
         </BrowserRouter>
