@@ -15,6 +15,7 @@ function Navbar(){
                 </Link>
                 <ul class={styles.list}>
                     <li className = {styles.item}><Link to = "/">Home</Link></li>
+                    <li className = {styles.item}><Link to = "/usuario">Usuário</Link></li>
                     <li className = {styles.item}><Link to = "/imoveis">Imoveis</Link></li>
                     <li className = {styles.item}><Link to = "/funcionarios">Funcionarios</Link></li>
                     <li className = {styles.item}><Link to = "/manutencao">Manutenção</Link></li>

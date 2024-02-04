@@ -1,0 +1,19 @@
+.usuario_container{
+    width: 600px;
+    margin: 0 auto;
+    padding: 3em;
+    padding: 30px;
+    background-color: white;
+    margin: 40px auto;
+}
+
+.usuario_container h1{
+    font-size: 19px;
+    margin-bottom: 0.2em;
+    text-transform:uppercase;
+    text-align: center;
+}
+
+.usuario_container p{
+    color: #7b7b7b;
+}
