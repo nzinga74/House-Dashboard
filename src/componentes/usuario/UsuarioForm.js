@@ -10,12 +10,14 @@ import styleForm from '../form/Selecionar.module.css'
 
 function Usuario({btnText}){
     const UsuarioSchema = Yup.object().shape({
-          email: Yup.string().email("Deve ser um email"),
-          senha: Yup.string().required("Requirido"),
-          nivel_acesso: Yup.string().required("Requirido"),
-          estado: Yup.string().required("Requirido"),
-          provincia: Yup.string().required("Requirido"),
-          municipio: Yup.string().min(5, "muito curto").required("Requirido"),
+      name: Yup.string().required("Requirido"),
+      lastname: Yup.string().required("Requirido"),   
+      estado: Yup.string().required("Requirido"), 
+      password: Yup.string().required("Requirido"),
+      email: Yup.string().email("Deve ser um email"),
+      nivel_acesso: Yup.string().required("Requirido"),
+     provincia: Yup.string().required("Requirido"),
+      municipio: Yup.string().min(5, "muito curto").required("Requirido"),
           distrito: Yup.string().min(5, "muito curto").required("Requirido"),
           bairro: Yup.string().min(5, "muito curto").required("Requirido"),
           Numero_residencia: Yup.number().required("Requirido"),
@@ -27,11 +29,12 @@ function Usuario({btnText}){
        validationSchema={UsuarioSchema}
         onSubmit={(values) => console.log(values)}
         initialValues={{
+          name: "",
+          lastname: "",
+          state: "",
+          password: "",
           email: "",
-          senha: "",
-          nivel_acesso: "",
-          estado: "",
-          provincia: "",
+          provincia:"",
           municipio: "",
           distrito: "",
           bairro: "",
@@ -41,7 +44,34 @@ function Usuario({btnText}){
       >
          {({ values,errors, touched }) => (
           <Form className={styles.form}>
+
+<div className={styleform.form_control}>
+              <label>Nome: </label>
+              <Field
+                type="text"
+                text="Nome"
+                name="name"
+                placeholder="Insira o seu nome"
+
+               // onChange={values=>setName(values.target.value)} value={name}
+              />
+              {errors.name && touched.name ? (<div className={styleform.error}> {errors.name}</div>):null}
+            </div>
+
             <div className={styleform.form_control}>
+              <label>Sobrenome:</label>
+            <Field
+              type="text"
+              text="Sobrenome"
+              name ="lastname"
+           
+              placeholder="Insira o seu sobrenome"
+             //onChange={values=>setLastname(values.target.value)} value={lastname}
+            />
+            {errors.lastname && touched.lastname ? (<div className={styleform.error}> {errors.lastname}</div>):null}
+            </div>
+            <div className={styleform.form_control}>
+
               <label>Email: </label>
               <Field
                 type="text"

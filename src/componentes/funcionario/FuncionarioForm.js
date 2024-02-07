@@ -5,25 +5,49 @@ import { Formik, Form, Field } from "formik";
 import styleform from "../form/Input.module.css";
 import * as Yup  from "yup"
 
+import api from "../../services/config";
+
+import { useState } from 'react';
+
+import { useNavigate } from 'react-router-dom';
+
 
 function FuncionarioForm({ btnText }) {
     const FuncionarioSchema = Yup.object().shape({
+      /*
         name: Yup.string().min(4,"Nome muito curto").required("Requirido"),
-         surname: Yup.string().min(4,"Nome muito curto").required("Requirido"),
-         number: Yup.number().min(9, "Deve ter 9 digitos").required("Requirido"),
+         lastname: Yup.string().min(4,"Nome muito curto").required("Requirido"),
+         phone: Yup.number().min(9, "Deve ter 9 digitos").required("Requirido"),
          email: Yup.string().email("Deve ser email").required("Requirido")
+         */
     })
+
+    const navigate = useNavigate()
+
+    const [name, setName] = useState("")
+    const [lastname, setLastname] = useState("")
+    const [phone, setPhone] = useState(0)
+    const [email, setEmail] = useState("")
     
+     const createPost = async(values) =>{
+      //values.preventDefault();
+       const post ={name, lastname, phone, email, userId: 1};
+      
+       await api.post("/employees", {
+        body: post,
+       });
+
+     };
+
   return (
     <div className={styles.formcontainer}>
       <Formik
        validationSchema={FuncionarioSchema}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => createPost(values)}
         initialValues={{
           name: "",
-          surname: "",
-          email: "",
-          number: 0,
+          lastname: "",
+          phone: 0,
           email: "",
         }}
       >
@@ -36,6 +60,8 @@ function FuncionarioForm({ btnText }) {
                 text="Nome"
                 name="name"
                 placeholder="Insira o seu nome"
+
+                onChange={values=>setName(values.target.value)} value={name}
               />
               {errors.name && touched.name ? (<div className={styleform.error}> {errors.name}</div>):null}
             </div>
@@ -44,11 +70,12 @@ function FuncionarioForm({ btnText }) {
             <Field
               type="text"
               text="Sobrenome"
-              name ="surname"
+              name ="lastname"
+           
               placeholder="Insira o seu sobrenome"
-              
+             onChange={values=>setLastname(values.target.value)} value={lastname}
             />
-            {errors.surname && touched.surname ? (<div className={styleform.error}> {errors.surname}</div>):null}
+            {errors.lastname && touched.lastname ? (<div className={styleform.error}> {errors.lastname}</div>):null}
             </div>
              
              <div className={styleform.form_control}> 
@@ -56,10 +83,14 @@ function FuncionarioForm({ btnText }) {
             <Field
               type="number"
               text="Telefone"
-              name="number"
+              name="phone"
+            
               placeholder="Insira o seu telefone"
+
+              onChange={values=>setPhone(values.target.value)} value={phone}
+            
             />
-             {errors.number && touched.number ? (<div className={styleform.error}> {errors.number}</div>):null}
+             {errors.phone && touched.phone ? (<div className={styleform.error}> {errors.phone}</div>):null}
              </div>
              <div className={styleform.form_control}>
               <label>Email:</label>
@@ -67,7 +98,11 @@ function FuncionarioForm({ btnText }) {
               type="text"
               text="Email"
               name="email"
+             
               placeholder="Insira o seu email"
+
+              onChange={values => setEmail(values.target.value)} value={email}
+             
             />
              {errors.email && touched.email ? (<div className={styleform.error}> {errors.email}</div>):null}
              </div>
